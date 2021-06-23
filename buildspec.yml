@@ -5,13 +5,11 @@ phases:
       dotnet: 3.1
   pre_build:
     commands:
-      - dotnet restore AspNetCoreWebApplication/AspNetCoreWebApplication.csproj
-      - dotnet restore AspNetCoreWebApplicationTest/AspNetCoreWebApplicationTest.csproj
+      - dotnet restore MGtestCCG.Web.csproj
   build:
     commands:
-      - dotnet publish -c release -o ./build_output AspNetCoreWebApplication/AspNetCoreWebApplication.csproj
-      - dotnet publish -c release -o ./test_output AspNetCoreWebApplicationTest/AspNetCoreWebApplicationTest.csproj
-      - dotnet vstest AspNetCoreWebApplicationTest/bin/release/netcoreapp3.1/AspNetCoreWebApplicationTest.dll
+      - dotnet publish -c release -o ./build_output MGtestCCG.Web.csproj
+     #- dotnet vstest AspNetCoreWebApplicationTest/bin/release/netcoreapp3.1/AspNetCoreWebApplicationTest.dll
   post_build:
     commands:
 
@@ -21,8 +19,8 @@ phases:
 artifacts:
   files:
     - template.yml
-    - AspNetCoreWebApplication/bin/**/*
-    - AspNetCoreWebApplication/wwwroot/**/*
+    - MGtestCCG.Web/bin/**/*
+    - MGtestCCG.Web/wwwroot/**/*
     - scripts/**/*
     - appspec.yml
     - requirements.txt
